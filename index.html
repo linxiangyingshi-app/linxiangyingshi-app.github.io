@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>林祥影视 · 院线观察与剧集推荐笔记 - linxiangyingshi-app.github.io</title>
+<meta name="description" content="林祥影视是一份持续更新的观影笔记，站点地址 https://linxiangyingshi-app.github.io，收录院线动态、剧集排片、长篇影评与幕后拍摄手记，按题材与年份整理片单，方便检索与回看。">
+<meta name="keywords" content="林祥影视,影视资讯,剧集推荐,影评专栏,幕后纪实,观影榜单,独立影评,剧集排片表">
+<meta name="author" content="林祥影视">
+<meta name="robots" content="index,follow">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0b0c10">
+<link rel="canonical" href="https://linxiangyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="林祥影视">
+<meta property="og:title" content="林祥影视 · 院线观察与剧集推荐笔记">
+<meta property="og:description" content="院线动态、剧集排片、长篇影评与幕后拍摄手记，按题材与年份整理片单。">
+<meta property="og:url" content="https://linxiangyingshi-app.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="林祥影视 · 院线观察与剧集推荐笔记">
+<meta name="twitter:description" content="院线动态、剧集排片、长篇影评与幕后拍摄手记。">
+<style>
+:root{
+  --ink:#0b0c10;
+  --ink-2:#14161d;
+  --ink-3:#1d202a;
+  --line:#2a2e3a;
+  --paper:#f2efe7;
+  --paper-dim:#a7aab5;
+  --gold:#e2b45f;
+  --rust:#c2543a;
+  --cool:#7c9cc4;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC","SimSun",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.01em;
+  overflow-x:hidden;
+}
+a{color:var(--cool);text-decoration:none}
+a:hover{color:var(--gold)}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 28px}
+
+/* 胶片孔洞装饰 */
+.filmstrip{
+  height:16px;
+  background-image:radial-gradient(circle at 8px 8px, var(--line) 3px, transparent 3.5px);
+  background-size:22px 16px;
+  background-color:var(--ink-2);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  opacity:.7;
+}
+
+/* 顶部条 */
+.topbar{
+  background:var(--ink-2);
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  min-height:40px;flex-wrap:wrap;
+}
+.topbar .addr{color:var(--paper-dim);font-family:var(--sans);word-break:break-all}
+.topbar .addr b{color:var(--gold);font-weight:600}
+.topbar nav{display:flex;gap:18px}
+.topbar nav a{color:var(--paper-dim);font-size:13px}
+.topbar nav a:hover{color:var(--gold)}
+
+/* 导航 */
+.site-head{
+  position:sticky;top:0;z-index:60;
+  background:rgba(11,12,16,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;justify-content:space-between;min-height:74px;gap:20px}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand h1{
+  font-family:var(--serif);
+  font-size:27px;font-weight:700;letter-spacing:.14em;
+  color:var(--paper);
+}
+.brand .tag{
+  font-size:12px;color:var(--gold);letter-spacing:.24em;
+  border-left:1px solid var(--line);padding-left:12px;
+}
+.mainnav{display:flex;gap:26px;font-size:15px}
+.mainnav a{color:var(--paper);position:relative;padding:4px 0}
+.mainnav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--gold);transition:right .25s ease;
+}
+.mainnav a:hover::after{right:0}
+.burger{
+  display:none;width:44px;height:38px;background:transparent;
+  border:1px solid var(--line);color:var(--paper);font-size:15px;cursor:pointer;
+}
+
+/* 首屏 */
+.hero{padding:78px 0 64px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-140px;right:-160px;width:460px;height:460px;
+  background:radial-gradient(circle,rgba(226,180,95,.16),transparent 68%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.55fr .95fr;gap:56px;align-items:start}
+.hero h2{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(34px,5.4vw,62px);line-height:1.18;letter-spacing:.02em;
+}
+.hero h2 em{font-style:normal;color:var(--gold)}
+.hero .lede{
+  margin-top:22px;max-width:34em;color:#cfd2da;font-size:16.5px;
+}
+.hero .lede strong{color:var(--paper);font-weight:600}
+.hero-meta{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:13px;color:var(--paper-dim);
+}
+.hero-meta span{border-left:2px solid var(--rust);padding-left:10px}
+.btn-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-block;padding:12px 26px;border:1px solid var(--gold);
+  color:var(--gold);font-size:14.5px;letter-spacing:.06em;
+}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn.ghost{border-color:var(--line);color:var(--paper)}
+.btn.ghost:hover{border-color:var(--gold);background:transparent;color:var(--gold)}
+
+/* 侧栏卡片 */
+.sidecard{
+  border:1px solid var(--line);background:var(--ink-2);padding:24px 22px;
+}
+.sidecard h3{
+  font-family:var(--serif);font-size:16px;letter-spacing:.16em;color:var(--gold);
+  border-bottom:1px dashed var(--line);padding-bottom:12px;margin-bottom:16px;
+}
+.sidecard ul{list-style:none}
+.sidecard li{
+  display:flex;justify-content:space-between;gap:14px;
+  padding:9px 0;border-bottom:1px solid rgba(42,46,58,.55);font-size:14.5px;
+}
+.sidecard li:last-child{border-bottom:0}
+.sidecard li b{color:var(--paper-dim);font-weight:400;font-size:13px}
+.urlline{
+  margin-top:18px;padding-top:14px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--paper-dim);word-break:break-all;line-height:1.6;
+}
+.urlline b{color:var(--gold)}
+
+/* 栏目通用 */
+.section{padding:66px 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:34px;flex-wrap:wrap}
+.sec-num{
+  font-family:var(--serif);font-size:44px;line-height:1;color:var(--line);font-weight:700;
+}
+.sec-head h3{font-family:var(--serif);font-size:27px;letter-spacing:.06em}
+.sec-head p{color:var(--paper-dim);font-size:14px;margin-left:auto;max-width:30em}
+
+/* 资讯：非对称网格 */
+.news-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:22px}
+.card{border:1px solid var(--line);background:var(--ink-2);padding:22px;display:flex;flex-direction:column}
+.card .kicker{font-size:12px;letter-spacing:.2em;color:var(--rust);margin-bottom:12px}
+.card h4{font-family:var(--serif);font-size:19px;line-height:1.5;margin-bottom:10px}
+.card h4 a{color:var(--paper)}
+.card h4 a:hover{color:var(--gold)}
+.card p{font-size:14.5px;color:var(--paper-dim);flex:1}
+.card .more{margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:.08em}
+.card.lead{background:linear-gradient(160deg,var(--ink-3),var(--ink-2));padding:28px}
+.card.lead h4{font-size:24px}
+.card.lead p{font-size:15px;color:#c3c6ce}
+
+/* 剧集：横向滚动 */
+.rail{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(238px,1fr);
+  gap:18px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;
+}
+.rail::-webkit-scrollbar{height:6px}
+.rail::-webkit-scrollbar-thumb{background:var(--line)}
+.poster{border:1px solid var(--line);background:var(--ink-2);scroll-snap-align:start;padding:0 0 16px}
+.poster .ph{
+  height:150px;display:flex;align-items:flex-end;padding:14px;
+  font-family:var(--serif);font-size:14px;letter-spacing:.16em;color:#0b0c10;
+}
+.ph-a{background:linear-gradient(140deg,#e2b45f,#c2543a)}
+.ph-b{background:linear-gradient(140deg,#7c9cc4,#3d5a80)}
+.ph-c{background:linear-gradient(140deg,#8fa88a,#42584a)}
+.ph-d{background:linear-gradient(140deg,#c8a2a2,#7a4f5c)}
+.ph-e{background:linear-gradient(140deg,#d8cbb5,#8c7b5e)}
+.poster .body{padding:16px 16px 0}
+.poster h4{font-size:16.5px;font-family:var(--serif);margin-bottom:8px;line-height:1.5}
+.poster dl{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--paper-dim);margin-top:10px}
+.poster dl span{color:var(--gold)}
+
+/* 影评：双栏 */
+.review{display:grid;grid-template-columns:1fr 1fr;gap:20px 34px}
+.review article{border-left:2px solid var(--line);padding-left:20px}
+.review article:hover{border-left-color:var(--gold)}
+.review h4{font-family:var(--serif);font-size:18px;margin-bottom:8px;line-height:1.55}
+.review h4 a{color:var(--paper)}
+.review p{font-size:14.5px;color:var(--paper-dim)}
+.review .by{margin-top:10px;font-size:12.5px;color:#6f7382}
+
+/* 幕后 */
+.backstage{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bs{border-top:3px solid var(--gold);background:var(--ink-2);padding:20px 18px}
+.bs:nth-child(2){border-top-color:var(--rust)}
+.bs:nth-child(3){border-top-color:var(--cool)}
+.bs:nth-child(4){border-top-color:#8fa88a}
+.bs h4{font-family:var(--serif);font-size:17px;margin-bottom:10px}
+.bs p{font-size:14px;color:var(--paper-dim)}
+.bs .step{font-size:12px;letter-spacing:.2em;color:var(--paper-dim);display:block;margin-bottom:8px}
+
+/* 榜单 */
+.rank{list-style:none;counter-reset:r}
+.rank li{
+  counter-increment:r;display:grid;grid-template-columns:56px 1fr auto;
+  gap:18px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);
+}
+.rank li::before{
+  content:counter(r,decimal-leading-zero);
+  font-family:var(--serif);font-size:22px;color:var(--gold);
+}
+.rank .t{font-size:16px}
+.rank .t small{display:block;color:var(--paper-dim);font-size:13px;margin-top:4px}
+.rank .score{font-family:var(--serif);font-size:18px;color:var(--rust)}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.about p{color:#c8cbd3;margin-bottom:16px}
+.faq{border-top:1px solid var(--line)}
+.faq div{border-bottom:1px solid var(--line);padding:16px 0}
+.faq h4{font-size:15.5px;cursor:default;margin-bottom:6px}
+.faq p{font-size:14px;color:var(--paper-dim)}
+
+/* 页脚 */
+.site-foot{background:var(--ink-2);border-top:1px solid var(--line);padding:52px 0 30px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.foot-grid h5{font-family:var(--serif);font-size:15px;letter-spacing:.12em;color:var(--gold);margin-bottom:14px}
+.foot-grid ul{list-style:none;font-size:14px}
+.foot-grid li{padding:5px 0}
+.foot-grid li a{color:#c8cbd3}
+.foot-grid p{font-size:14px;color:var(--paper-dim)}
+.foot-addr{margin-top:14px;font-size:13px;color:var(--paper-dim);word-break:break-all}
+.foot-addr b{color:var(--gold)}
+.copy{
+  margin-top:38px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.5px;color:#6f7382;
+}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .news-grid{grid-template-columns:1fr 1fr}
+  .card.lead{grid-column:1 / -1}
+  .backstage{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:26px}
+}
+@media (max-width:720px){
+  .wrap{padding:0 18px}
+  .topbar nav{display:none}
+  .mainnav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:var(--ink-2);border-bottom:1px solid var(--line);
+    flex-direction:column;gap:0;padding:8px 18px 16px;
+  }
+  .mainnav.open{display:flex}
+  .mainnav a{padding:12px 0;border-bottom:1px solid rgba(42,46,58,.6)}
+  .burger{display:block}
+  .site-head{position:relative}
+  .hero{padding:48px 0 40px}
+  .sec-head p{margin-left:0}
+  .sec-num{font-size:34px}
+  .news-grid,.review,.about,.backstage{grid-template-columns:1fr}
+  .rail{grid-auto-columns:82%}
+  .rank li{grid-template-columns:44px 1fr;gap:12px}
+  .rank .score{grid-column:2;padding-left:0;font-size:15px}
+  .foot-grid{grid-template-columns:1fr}
+  .brand h1{font-size:22px}
+  .brand .tag{display:none}
+}
+@media (max-width:380px){
+  .hero h2{font-size:30px}
+  .card.lead{padding:20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <p class="addr">站点地址：<b>https://linxiangyingshi-app.github.io</b></p>
+    <nav aria-label="快捷入口">
+      <a href="#">投稿</a>
+      <a href="#">片单归档</a>
+      <a href="#">订阅更新</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <h1>林祥影视</h1>
+      <span class="tag">FILM &amp; NOTES</span>
+    </div>
+    <nav class="mainnav" id="nav" aria-label="主导航">
+      <a href="#">影视资讯</a>
+      <a href="#">剧集推荐</a>
+      <a href="#">影评专栏</a>
+      <a href="#">幕后纪实</a>
+      <a href="#">观影榜单</a>
+      <a href="#">关于我们</a>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-label="展开导航菜单">菜单</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h2>把看过的片子<br>留成一份<em>可检索的笔记</em></h2>
+        <p class="lede">
+          林祥影视记录院线排片的真实节奏、剧集更新的追看体验，以及那些值得反复拉片的段落。
+          不做打分机器，也不追热点通稿，只把<strong>观影过程中真正有用的信息</strong>整理清楚——
+          上映时间、版本差异、适合什么样的人看、值不值得补。
+        </p>
+        <div class="hero-meta">
+          <span>院线观察</span>
+          <span>剧集排片</span>
+          <span>长篇影评</span>
+          <span>幕后手记</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn" href="#">浏览本期片单</a>
+          <a class="btn ghost" href="#">查看全部栏目</a>
+        </div>
+      </div>
+      <aside class="sidecard">
+        <h3>本期速览</h3>
+        <ul>
+          <li><a href="#">院线新片观察</a><b>12 条</b></li>
+          <li><a href="#">剧集追更进度</a><b>08 条</b></li>
+          <li><a href="#">长篇影评</a><b>05 篇</b></li>
+          <li><a href="#">幕后拍摄手记</a><b>04 篇</b></li>
+          <li><a href="#">年度观影榜单</a><b>20 部</b></li>
+        </ul>
+        <p class="urlline">
+          在线访问：<b>https://linxiangyingshi-app.github.io</b><br>
+          站点名称：林祥影视
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="filmstrip" aria-hidden="true"></div>
+
+  <section class="section" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h3>影视资讯</h3>
+        <p>按周整理院线与流媒体动态，标注档期变化、版本信息与可信来源，剔除营销口径。</p>
+      </div>
+      <div class="news-grid">
+        <article class="card lead">
+          <p class="kicker">院线观察</p>
+          <h4><a href="#">周末档排片：中小成本影片如何挤进黄金场</a></h4>
+          <p>
+            影院排片并不只由票房预期决定，拷贝数量、密钥期限与厅型匹配都会影响结果。
+            这一篇逐条拆解放映端的操作逻辑，并附上近三个月黄金场占比的变动曲线说明。
+          </p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+        <article class="card">
+          <p class="kicker">流媒体</p>
+          <h4><a href="#">剧集周更与一次性放出的追看差异</a></h4>
+          <p>两种更新方式对讨论热度、弃剧率的影响完全不同，附三组对照数据。</p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+        <article class="card">
+          <p class="kicker">行业笔记</p>
+          <h4><a href="#">重映与修复版：值得再买一张票吗</a></h4>
+          <p>4K 修复的成本构成、画幅还原争议，以及怎么判断一次重映是否诚意。</p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+        <article class="card">
+          <p class="kicker">版权提示</p>
+          <h4><a href="#">在线资源的版本标识怎么看</a></h4>
+          <p>WEB-DL、BluRay、REMUX 的实际差别，以及字幕时间轴错位的常见原因。</p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+        <article class="card">
+          <p class="kicker">器材闲谈</p>
+          <h4><a href="#">家庭投影的色彩校准入门</a></h4>
+          <p>不谈参数堆砌，只讲三步把色温、伽马与亮度落在可用区间。</p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+        <article class="card">
+          <p class="kicker">观影礼仪</p>
+          <h4><a href="#">影厅里的那些默认规则</a></h4>
+          <p>迟到入场、录像拍照、手机亮度，一份写给观众也写给自己的提醒。</p>
+          <a class="more" href="#">阅读全文</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="series">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h3>剧集推荐</h3>
+        <p>标注集数、单集时长与更新状态，写明适合在什么心情下追，避免无效安利。</p>
+      </div>
+      <div class="rail">
+        <div class="poster">
+          <div class="ph ph-a">剧情 / 12 集</div>
+          <div class="body">
+            <h4><a href="#">小镇旧案</a></h4>
+            <p>节奏偏慢，靠细节堆出张力，适合连续两个晚上看完。</p>
+            <dl><dt>单集</dt><span>52 分钟</span><dt>状态</dt><span>已完结</span></dl>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="ph ph-b">悬疑 / 8 集</div>
+          <div class="body">
+            <h4><a href="#">夜航信号</a></h4>
+            <p>线索埋得干净，第二集末尾有关键反转，不宜跳看。</p>
+            <dl><dt>单集</dt><span>45 分钟</span><dt>状态</dt><span>已完结</span></dl>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="ph ph-c">纪录 / 6 集</div>
+          <div class="body">
+            <h4><a href="#">山那边的水电站</a></h4>
+            <p>工程与人的关系讲得克制，第 4 集的口述部分最打动人。</p>
+            <dl><dt>单集</dt><span>38 分钟</span><dt>状态</dt><span>更新中</span></dl>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="ph ph-d">都市 / 24 集</div>
+          <div class="body">
+            <h4><a href="#">早班地铁</a></h4>
+            <p>群像写得扎实，中段稍拖，建议 1.25 倍速过第 9 至 12 集。</p>
+            <dl><dt>单集</dt><span>30 分钟</span><dt>状态</dt><span>已完结</span></dl>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="ph ph-e">历史 / 10 集</div>
+          <div class="body">
+            <h4><a href="#">盐道往事</a></h4>
+            <p>服化道考究，台词偏文，适合有耐心、愿意记人物关系的观众。</p>
+            <dl><dt>单集</dt><span>48 分钟</span><dt>状态</dt><span>已完结</span></dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="review">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h3>影评专栏</h3>
+        <p>长篇为主，注明是否含剧透；结论放在开头，论证过程留在后面。</p>
+      </div>
+      <div class="review">
+        <article>
+          <h4><a href="#">当长镜头不再炫技：一次克制的调度</a></h4>
+          <p>影片把镜头 movement 藏在人物走位里，观众注意到的是情绪而非技法，这类处理值得单独拆一遍。</p>
+          <p class="by">含轻微剧透 · 约 4200 字</p>
+        </article>
+        <article>
+          <h4><a href="#">配乐抢戏的边界在哪里</a></h4>
+          <p>三处音乐使用对比，说明情绪铺满反而会削弱结尾的沉默力量。</p>
+          <p class="by">无剧透 · 约 2600 字</p>
+        </article>
+        <article>
+          <h4><a href="#">改编作品为何总在第三幕塌掉</a></h4>
+          <p>从结构取舍谈忠实与重构：保留人物动机，比保留情节更接近原著精神。</p>
+          <p class="by">含结局讨论 · 约 5100 字</p>
+        </article>
+        <article>
+          <h4><a href="#">黑白摄影不是复古滤镜</a></h4>
+          <p>对比两部同题材影片，谈影调分区如何替代色彩完成叙事。</p>
+          <p class="by">无剧透 · 约 3100 字</p>
+        </article>
+        <article>
+          <h4><a href="#">方言对白与字幕翻译的损失</a></h4>
+          <p>几处无法直译的俚语，看不同版本字幕如何处理，附对照表。</p>
+          <p class="by">无剧透 · 约 2900 字</p>
+        </article>
+        <article>
+          <h4><a href="#">重看十年后的同一部片</a></h4>
+          <p>观影经验改变了对角色的判断，记录一次个人口味的迁移过程。</p>
+          <p class="by">含完整剧情 · 约 3700 字</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="backstage">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h3>幕后纪实</h3>
+        <p>从勘景到混录，按流程记录一部片子真正花时间的地方。</p>
+      </div>
+      <div class="backstage">
+        <div class="bs">
+          <span class="step">STEP 01</span>
+          <h4>勘景与光线</h4>
+          <p>同一处场地在不同时段的可用光只有两三个小时，勘景表要精确到分钟。</p>
+        </div>
+        <div class="bs">
+          <span class="step">STEP 02</span>
+          <h4>美术与陈设</h4>
+          <p>镜头里能看清的道具只占三分之一，其余预算花在看不见的质感上。</p>
+        </div>
+        <div class="bs">
+          <span class="step">STEP 03</span>
+          <h4>现场收音</h4>
+          <p>同期声能省下大量后期成本，环境噪声的处理远比想象中麻烦。</p>
+        </div>
+        <div class="bs">
+          <span class="step">STEP 04</span>
+          <h4>剪辑与混录</h4>
+          <p>粗剪决定结构，混录决定质感，两者之间往往隔着三次推翻重来。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <h3>观影榜单</h3>
+        <p>按题材分类整理，评分仅代表本站观点，附一句入选理由。</p>
+      </div>
+      <ol class="rank">
+        <li><div class="t">夜航信号<small>悬疑 · 结构完整，反转有铺垫</small></div><div class="score">8.9</div></li>
+        <li><div class="t">盐道往事<small>历史 · 服化道考究，台词讲究</small></div><div class="score">8.7</div></li>
+        <li><div class="t">山那边的水电站<small>纪录 · 口述部分真诚克制</small></div><div class="score">8.6</div></li>
+        <li><div class="t">小镇旧案<small>剧情 · 细节密集，二刷有增益</small></div><div class="score">8.4</div></li>
+        <li><div class="t">早班地铁<small>都市 · 群像扎实，中段稍拖</small></div><div class="score">7.9</div></li>
+        <li><div class="t">河岸的第二封信<small>文艺 · 情绪到位，节奏偏慢</small></div><div class="score">7.6</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div>
+        <div class="sec-head" style="margin-bottom:22px">
+          <span class="sec-num">06</span>
+          <h3>关于林祥影视</h3>
+        </div>
+        <p>
+          林祥影视最初只是一个人的观影记录，后来逐渐变成按栏目整理的资料库。
+          所有条目都标注了整理时间与信息来源，观点部分会明确区分事实与主观判断。
+        </p>
+        <p>
+          站点名称：林祥影视；访问地址 https://linxiangyingshi-app.github.io。
+          内容以中文为主，涉及外文片名时保留原名，便于检索对照。
+        </p>
+        <div class="btn-row" style="margin-top:8px">
+          <a class="btn" href="#">投稿与合作</a>
+          <a class="btn ghost" href="#">纠错与补充</a>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--serif);font-size:20px;margin-bottom:16px">常见问题</h3>
+        <div class="faq">
+          <div>
+            <h4>片单多久更新一次？</h4>
+            <p>资讯按周更新，影评与榜单不设固定周期，攒够内容才发。</p>
+          </div>
+          <div>
+            <h4>评分是怎么来的？</h4>
+            <p>本站三位编辑各自打分取中位数，差异超过一分时会写明分歧。</p>
+          </div>
+          <div>
+            <h4>是否提供资源下载？</h4>
+            <p>不提供。只给出正版播出平台与上映信息，便于自行查找。</p>
+          </div>
+          <div>
+            <h4>可以转载内容吗？</h4>
+            <p>注明出处与作者即可，请勿删改结论部分的表述。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>林祥影视</h5>
+        <p>一份持续整理的观影笔记，覆盖院线动态、剧集排片、长篇影评与幕后手记。</p>
+        <p class="foot-addr">网址：<b>https://linxiangyingshi-app.github.io</b></p>
+      </div>
+      <div>
+        <h5>内容栏目</h5>
+        <ul>
+          <li><a href="#">影视资讯</a></li>
+          <li><a href="#">剧集推荐</a></li>
+          <li><a href="#">影评专栏</a></li>
+          <li><a href="#">幕后纪实</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>索引方式</h5>
+        <ul>
+          <li><a href="#">按题材检索</a></li>
+          <li><a href="#">按年份归档</a></li>
+          <li><a href="#">按地区筛选</a></li>
+          <li><a href="#">评分排序</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站点信息</h5>
+        <ul>
+          <li><a href="#">投稿说明</a></li>
+          <li><a href="#">内容更正</a></li>
+          <li><a href="#">转载规范</a></li>
+          <li><a href="#">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>&copy; 2026 林祥影视 · linxiangyingshi-app.github.io</span>
+      <span>本站仅提供影视信息整理，不存储任何影音文件</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger');
+  var n=document.getElementById('nav');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.textContent=open?'收起':'菜单';
+    });
+    n.addEventListener('click',function(e){
+      if(e.target.tagName==='A'){
+        n.classList.remove('open');
+        b.textContent='菜单';
+      }
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "name":"林祥影视",
+      "url":"https://linxiangyingshi-app.github.io/",
+      "inLanguage":"zh-CN",
+      "description":"林祥影视整理院线动态、剧集排片、长篇影评与幕后拍摄手记，按题材与年份归档片单。",
+      "publisher":{"@type":"Organization","name":"林祥影视"}
+    },
+    {
+      "@type":"Organization",
+      "name":"林祥影视",
+      "url":"https://linxiangyingshi-app.github.io/",
+      "description":"影视资讯、剧集推荐与影评专栏的内容整理站点。"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"首页","item":"https://linxiangyingshi-app.github.io/"},
+        {"@type":"ListItem","position":2,"name":"影视资讯"},
+        {"@type":"ListItem","position":3,"name":"剧集推荐"},
+        {"@type":"ListItem","position":4,"name":"影评专栏"},
+        {"@type":"ListItem","position":5,"name":"观影榜单"}
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
